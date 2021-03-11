@@ -66,12 +66,15 @@ if __name__ == '__main__':
     race_result = race_result / 100000000   # 1억 단위.
     print(race_result.to_string())
 
-    plt.rcParams["figure.figsize"] = (14, 4)
+    plt.rcParams["figure.figsize"] = (28, 8)
     race_result.plot(title="2019년 이후 분봉당 평균 거래대금(억 원)")
     plt.grid(True)
-    plt.xticks(rotation=90)
+    ran = [i for i in range(0, len(race_result), 10)]
+    keys = race_result.index
+    plt.xticks(ran, keys[ran], rotation=90)
 
 
+    plt.savefig('KODEX_KOSPI_KOSDAQ_ETF.png', dpi=600)
     plt.show()
 
 
